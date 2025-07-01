@@ -1,12 +1,12 @@
 export default function About() {
   return (
-    <div className="container mt-5 mb-5">
+    <div className="container mt-5 mb-5 pt-5">
       <div className="text-center mb-4">
         <h1 className="fw-bold">About Us</h1>
         <p className="text-muted">Learn more about our story and mission</p>
       </div>
 
-      <div className="row align-items-center mb-5">
+      <div className="row align-items-center mb-5 ">
         <div className="col-md-6">
           <img
             src="https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg"

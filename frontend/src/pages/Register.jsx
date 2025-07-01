@@ -22,8 +22,8 @@ export default function Register() {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Register</h2>
+    <div className="container mt-5 pt-5">
+      <h2 className="text-center">Register</h2>
       {error && <div className="alert alert-danger">{error}</div>}
       <form onSubmit={handleSubmit} className="w-50 mx-auto">
         <div className="mb-3">

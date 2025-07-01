@@ -36,6 +36,7 @@ export const CartProvider = ({ children }) => {
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
 
+    
       // ✅ Refetch updated cart
       const res = await axios.get("http://localhost:5000/api/cart", {
         headers: { Authorization: `Bearer ${user.token}` },

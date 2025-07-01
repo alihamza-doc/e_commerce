@@ -1,20 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import Home from "./pages/Home.jsx";
-import ProductPage from "./pages/ProductPage.jsx";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
-import Navbar from "./components/Navbar.jsx";
-import AddProduct from "./pages/addProduct.jsx";
-import EditProduct from "./pages/EditProducts.jsx";
+import Layout from "./components/Layout";
+
+import Home from "./pages/Home";
+import ProductPage from "./pages/ProductPage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AddProduct from "./pages/addProduct";
+import EditProduct from "./pages/EditProducts";
 import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout.jsx"
-import OrderConfirmation from "./pages/OrderConfirmation.jsx"
-import About from "./pages/About.jsx";
-import AdminDashboard from "./pages/AdminDashboard.jsx";
-import AdminOrders from "./pages/AdminOrders.jsx";
-import AdminUsers from "./pages/AdminUsers.jsx";
-import ManageProducts from "./pages/manageProducts.jsx";
+import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
+import About from "./pages/About";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminOrders from "./pages/AdminOrders";
+import AdminUsers from "./pages/AdminUsers";
+import ManageProducts from "./pages/manageProducts";
+import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 function App() {
   useEffect(() => {
     localStorage.removeItem("user"); // clears saved login
@@ -22,22 +25,31 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
+    <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductPage />} />
+        
+
+        {/* ✅ Pages with Navbar & Footer */}
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/edit-product/:id" element={<EditProduct />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
+
+        {/* ❌ Pages without Navbar & Footer */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/add-product" element={<AddProduct />} />
-        <Route path="/edit-product/:id" element={<EditProduct />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/order-confirmation" element={<OrderConfirmation />} />
-        <Route path="/about" element={<About />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/orders" element={<AdminOrders />} />
         <Route path="/admin/users" element={<AdminUsers />} />
         <Route path="/admin/manageproducts" element={<ManageProducts />} />
+        <Route path="/add-product" element={<AddProduct />} />
+
 
       </Routes>
     </BrowserRouter>

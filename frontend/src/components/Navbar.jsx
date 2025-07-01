@@ -9,7 +9,7 @@ export default function Navbar() {
   const { cartCount } = useCart();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-2 fixed-top" >
       <div className="container-fluid">
         <Link className="navbar-brand fw-bold" to="/">
           🛍 E-Shop
@@ -61,21 +61,17 @@ export default function Navbar() {
               )}
             </li>
 
-            {role === "admin" && (
+            {/* only for admin */}
               <>
                 
-                <li className="nav-item">
-                  <NavLink to="/add-product" className="nav-link text-white">
-                    Add Product
-                  </NavLink>
-                </li>
+                
                 <li className="nav-item">
                   <Link to="/admin/dashboard" className="nav-link">
                     Admin Panel
                   </Link>
                 </li>
               </>
-            )}
+            
           </ul>
 
           <ul className="navbar-nav ms-auto">

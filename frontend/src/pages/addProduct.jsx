@@ -74,8 +74,8 @@ export default function AddProduct() {
   }
 
   return (
-    <div className="container mt-4">
-      <h2>Add New Product</h2>
+    <div className="container mt-4 mb-5">
+      <h2 className="text-center pb-2">Add New Product</h2>
       {error && <div className="alert alert-danger">{error}</div>}
 
       <form onSubmit={handleSubmit} className="w-50 mx-auto">
@@ -109,7 +109,7 @@ export default function AddProduct() {
 
         </div>
 
-        <button type="submit" className="btn btn-success" disabled={uploading}>
+        <button type="submit" className="btn btn-success w-100" disabled={uploading}>
           Add Product
         </button>
       </form>

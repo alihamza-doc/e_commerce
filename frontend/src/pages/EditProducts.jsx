@@ -71,7 +71,7 @@ export default function EditProduct() {
         },
       });
       alert("Product updated successfully");
-      navigate("/");
+      navigate("/admin/manageproducts");
     } catch (err) {
       console.error(err);
       setError("Update failed");
