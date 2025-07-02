@@ -6,11 +6,11 @@ export default function OrderConfirmation() {
   const order = state;
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-5 pt-5">
       <h2>🎉 Order Placed Successfully!</h2>
       <p>Order ID: {order._id}</p>
       <p>Status: {order.status}</p>
-      <p>Total Paid: ${order.totalPrice}</p>
+      <p>Total Amount: ${order.totalPrice}</p>
     </div>
   );
 }

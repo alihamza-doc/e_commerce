@@ -70,6 +70,11 @@ export default function Navbar() {
                     Admin Panel
                   </Link>
                 </li>
+                 <li className="nav-item">
+                  <Link to="/my-orders" className="nav-link">
+                    My Orders
+                  </Link>
+                </li>
               </>
             
           </ul>

@@ -18,6 +18,7 @@ import AdminUsers from "./pages/AdminUsers";
 import ManageProducts from "./pages/manageProducts";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
+import MyOrders from "./pages/MyOrder";
 function App() {
   useEffect(() => {
     localStorage.removeItem("user"); // clears saved login
@@ -39,6 +40,8 @@ function App() {
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/my-orders" element={<MyOrders />} />
+
         </Route>
 
         {/* ❌ Pages without Navbar & Footer */}
