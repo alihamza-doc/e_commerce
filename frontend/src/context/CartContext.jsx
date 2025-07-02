@@ -61,13 +61,69 @@ export const CartProvider = ({ children }) => {
       console.error("Remove from cart failed:", err);
     }
   };
+  
+  const increaseQuantity = async (productId) => {
+  const item = cart.find((item) => item.product._id === productId);
+  if (!item) return;
+
+  const newQuantity = item.quantity + 1;
+
+  try {
+    await axios.patch(
+      `http://localhost:5000/api/cart/${productId}`,
+      { quantity: newQuantity }, // ✅ Send quantity in body
+      {
+        headers: { Authorization: `Bearer ${user.token}` },
+      }
+    );
+
+    // ✅ Refresh cart
+    const res = await axios.get("http://localhost:5000/api/cart", {
+      headers: { Authorization: `Bearer ${user.token}` },
+    });
+    setCart(res.data.items);
+  } catch (err) {
+    console.error("Failed to update quantity:", err);
+  }
+};
+
+const decreaseQuantity = async (productId) => {
+  const item = cart.find((item) => item.product._id === productId);
+  if (!item || item.quantity <= 1) return;
+
+  const newQuantity = item.quantity - 1;
+
+  try {
+    await axios.patch(
+      `http://localhost:5000/api/cart/${productId}`,
+      { quantity: newQuantity }, // ✅ Send quantity in body
+      {
+        headers: { Authorization: `Bearer ${user.token}` },
+      }
+    );
+
+    // ✅ Refresh cart
+    const res = await axios.get("http://localhost:5000/api/cart", {
+      headers: { Authorization: `Bearer ${user.token}` },
+    });
+    setCart(res.data.items);
+  } catch (err) {
+    console.error("Failed to update quantity:", err);
+  }
+};
+
+
+
+
 
 const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart , cartCount, setCart}}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart , cartCount, setCart, decreaseQuantity,increaseQuantity}}>
       {children}
     </CartContext.Provider>
   );
+ 
+
 };

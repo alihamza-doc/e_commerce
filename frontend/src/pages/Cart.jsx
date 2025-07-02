@@ -2,7 +2,8 @@ import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart , increaseQuantity, decreaseQuantity } = useCart();
+
 
   const total = cart.reduce(
     (acc, item) => acc + item.product.price * item.quantity,
@@ -55,6 +56,21 @@ export default function Cart() {
                       Remove
                     </button>
                   </td>
+                  <td>
+                    <button
+                      className="btn btn-sm btn-outline-secondary me-2"
+                      onClick={() => decreaseQuantity(item.product._id)}
+                    >
+                      −
+                    </button>
+                    {item.quantity}
+                    <button
+                      className="btn btn-sm btn-outline-secondary ms-2"
+                      onClick={() => increaseQuantity(item.product._id)}
+                    >
+                      +
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -62,12 +78,12 @@ export default function Cart() {
 
           <div className="text-end">
             <div className="text-end">
-            <h4>Total: ${total}</h4>
-            <Link to="/checkout" className="btn btn-primary mt-2">
-             Checkout
-            </Link>
-            </div>     
+              <h4>Total: ${total}</h4>
+              <Link to="/checkout" className="btn btn-primary mt-2">
+                Checkout
+              </Link>
             </div>
+          </div>
         </>
       )}
     </div>
