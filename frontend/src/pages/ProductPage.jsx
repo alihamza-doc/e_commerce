@@ -10,7 +10,7 @@ export default function ProductPage() {
   const {user} = useAuth();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/products/${id}`)
+      .get(`https://ecom-backend-bedb.onrender.com/api/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error("Failed to fetch product:", err));
   }, [id]);

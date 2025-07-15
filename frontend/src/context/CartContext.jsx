@@ -14,7 +14,7 @@ export const CartProvider = ({ children }) => {
     const fetchCart = async () => {
       if (!user?.token) return;
       try {
-        const res = await axios.get("http://localhost:5000/api/cart", {
+        const res = await axios.get("https://ecom-backend-bedb.onrender.com/api/cart", {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setCart(res.data.items);
@@ -31,14 +31,14 @@ export const CartProvider = ({ children }) => {
   const addToCart = async (product) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/cart",
+        "https://ecom-backend-bedb.onrender.com/api/cart",
         { productId: product._id, quantity: 1 },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
 
     
       // ✅ Refetch updated cart
-      const res = await axios.get("http://localhost:5000/api/cart", {
+      const res = await axios.get("https://ecom-backend-bedb.onrender.com/api/cart", {
         headers: { Authorization: `Bearer ${user.token}` },
       });
 
@@ -52,7 +52,7 @@ export const CartProvider = ({ children }) => {
   // ✅ Remove product from cart and refresh
   const removeFromCart = async (productId) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/cart/${productId}`, {
+      const res = await axios.delete(`https://ecom-backend-bedb.onrender.com/api/cart/${productId}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
 
@@ -70,7 +70,7 @@ export const CartProvider = ({ children }) => {
 
   try {
     await axios.patch(
-      `http://localhost:5000/api/cart/${productId}`,
+      `https://ecom-backend-bedb.onrender.com/api/cart/${productId}`,
       { quantity: newQuantity }, // ✅ Send quantity in body
       {
         headers: { Authorization: `Bearer ${user.token}` },
@@ -78,7 +78,7 @@ export const CartProvider = ({ children }) => {
     );
 
     // ✅ Refresh cart
-    const res = await axios.get("http://localhost:5000/api/cart", {
+    const res = await axios.get("https://ecom-backend-bedb.onrender.com/api/cart", {
       headers: { Authorization: `Bearer ${user.token}` },
     });
     setCart(res.data.items);
@@ -95,7 +95,7 @@ const decreaseQuantity = async (productId) => {
 
   try {
     await axios.patch(
-      `http://localhost:5000/api/cart/${productId}`,
+      `https://ecom-backend-bedb.onrender.com/api/cart/${productId}`,
       { quantity: newQuantity }, // ✅ Send quantity in body
       {
         headers: { Authorization: `Bearer ${user.token}` },
@@ -103,7 +103,7 @@ const decreaseQuantity = async (productId) => {
     );
 
     // ✅ Refresh cart
-    const res = await axios.get("http://localhost:5000/api/cart", {
+    const res = await axios.get("https://ecom-backend-bedb.onrender.com/api/cart", {
       headers: { Authorization: `Bearer ${user.token}` },
     });
     setCart(res.data.items);

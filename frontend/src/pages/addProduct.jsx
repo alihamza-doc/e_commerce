@@ -32,7 +32,7 @@ export default function AddProduct() {
     const formData = new FormData();
     formData.append("image", file);
 
-    const res = await axios.post("http://localhost:5000/api/upload", formData, {
+    const res = await axios.post("https://ecom-backend-bedb.onrender.com/api/upload", formData, {
       headers: {
         Authorization: `Bearer ${user.token}`,
         "Content-Type": "multipart/form-data",
@@ -56,7 +56,7 @@ export default function AddProduct() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/products", form, {
+      await axios.post("https://ecom-backend-bedb.onrender.com/api/products", form, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

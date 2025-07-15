@@ -13,7 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get("https://ecom-backend-bedb.onrender.com/api/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.error("Failed to fetch products:", err));
   }, []);
@@ -21,7 +21,7 @@ export default function Home() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`https://ecom-backend-bedb.onrender.com/api/products/${id}`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

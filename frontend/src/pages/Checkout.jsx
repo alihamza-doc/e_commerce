@@ -39,7 +39,7 @@ export default function Checkout() {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/api/orders",
+        "https://ecom-backend-bedb.onrender.com/api/orders",
         {
           shippingAddress: {
             name: form.name,

@@ -65,7 +65,7 @@ export default function EditProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/products/${id}`, form, {
+      await axios.put(`https://ecom-backend-bedb.onrender.com/api/products/${id}`, form, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

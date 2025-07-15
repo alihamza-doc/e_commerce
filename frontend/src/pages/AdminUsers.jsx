@@ -11,7 +11,7 @@ export default function AdminUsers() {
   useEffect(() => {
     if (user?.role === "admin") {
       axios
-        .get("http://localhost:5000/api/users/admin", {
+        .get("https://ecom-backend-bedb.onrender.com/api/users/admin", {
           headers: { Authorization: `Bearer ${user.token}` },
         })
         .then((res) => setUsers(res.data))

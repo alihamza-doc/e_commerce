@@ -10,7 +10,7 @@ export default function AdminOrders() {
   useEffect(() => {
     if (user?.role === "admin") {
       axios
-        .get("http://localhost:5000/api/orders/admin", {
+        .get("https://ecom-backend-bedb.onrender.com/api/orders/admin", {
           headers: { Authorization: `Bearer ${user.token}` },
         })
         .then((res) => setOrders(res.data))
@@ -22,7 +22,7 @@ export default function AdminOrders() {
   const handleStatusChange = async (orderId, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/orders/${orderId}/status`,
+        `https://ecom-backend-bedb.onrender.com/api/orders/${orderId}/status`,
         { status: newStatus },
         {
           headers: {
