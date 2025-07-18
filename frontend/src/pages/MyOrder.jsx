@@ -159,7 +159,7 @@ const MyOrders = () => {
                           )}
                           <div>
                             <div className="text-truncate" style={{ maxWidth: '150px' }}>
-                              {product.name || "Product not found"}
+                              {product?.name || "Product not found"}
                             </div>
                             <small className="text-muted">
                               Qty: {item.quantity} × ${product?.price ? product.price.toFixed(2) : 'N/A'}
