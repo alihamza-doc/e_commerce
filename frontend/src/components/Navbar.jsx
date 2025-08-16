@@ -46,6 +46,7 @@ export default function Navbar() {
           aria-controls="mainNavbar"
           aria-expanded="false"
         >
+          
           <span className="navbar-toggler-icon"></span>
         </button>
 
