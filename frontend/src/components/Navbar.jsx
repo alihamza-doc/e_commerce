@@ -32,7 +32,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-2 fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3 fixed-top">
       <div className="container-fluid">
         <Link className="navbar-brand fw-bold" to="/" onClick={closeNavbar}>
           🛍 E-Shop
