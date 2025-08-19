@@ -12,21 +12,21 @@ export default function Navbar() {
   const closeNavbar = () => {
     if (navbarRef.current && window.innerWidth < 992) {
       const bsCollapse = new bootstrap.Collapse(navbarRef.current, {
-        toggle: false
+        toggle: false,
       });
       bsCollapse.hide();
     }
   };
 
   useEffect(() => {
-    const navLinks = document.querySelectorAll('#mainNavbar .nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', closeNavbar);
+    const navLinks = document.querySelectorAll("#mainNavbar .nav-link");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", closeNavbar);
     });
 
     return () => {
-      navLinks.forEach(link => {
-        link.removeEventListener('click', closeNavbar);
+      navLinks.forEach((link) => {
+        link.removeEventListener("click", closeNavbar);
       });
     };
   }, []);
@@ -39,18 +39,32 @@ export default function Navbar() {
         </Link>
 
         <button
-          className="navbar-toggler"
+          className="navbar-toggler position-relative"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#mainNavbar"
           aria-controls="mainNavbar"
           aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          
           <span className="navbar-toggler-icon"></span>
+
+          {/* Show badge if cart has items */}
+          {cartCount > 0 && (
+            <span
+              className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              style={{ fontSize: "0.7rem" }}
+            >
+              {cartCount}
+            </span>
+          )}
         </button>
 
-        <div className="collapse navbar-collapse" id="mainNavbar" ref={navbarRef}>
+        <div
+          className="collapse navbar-collapse"
+          id="mainNavbar"
+          ref={navbarRef}
+        >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <NavLink to="/" className="nav-link" onClick={closeNavbar}>
@@ -91,7 +105,11 @@ export default function Navbar() {
             {/* Show "My Orders" to all logged-in users */}
             {user && (
               <li className="nav-item">
-                <Link to="/my-orders" className="nav-link" onClick={closeNavbar}>
+                <Link
+                  to="/my-orders"
+                  className="nav-link"
+                  onClick={closeNavbar}
+                >
                   My Orders
                 </Link>
               </li>
@@ -100,7 +118,11 @@ export default function Navbar() {
             {/* Admin-only links */}
             {role === "admin" && (
               <li className="nav-item">
-                <Link to="/admin/dashboard" className="nav-link" onClick={closeNavbar}>
+                <Link
+                  to="/admin/dashboard"
+                  className="nav-link"
+                  onClick={closeNavbar}
+                >
                   Admin Panel
                 </Link>
               </li>
@@ -111,12 +133,20 @@ export default function Navbar() {
             {!user ? (
               <>
                 <li className="nav-item">
-                  <NavLink to="/login" className="nav-link" onClick={closeNavbar}>
+                  <NavLink
+                    to="/login"
+                    className="nav-link"
+                    onClick={closeNavbar}
+                  >
                     Login
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/register" className="nav-link" onClick={closeNavbar}>
+                  <NavLink
+                    to="/register"
+                    className="nav-link"
+                    onClick={closeNavbar}
+                  >
                     Register
                   </NavLink>
                 </li>
