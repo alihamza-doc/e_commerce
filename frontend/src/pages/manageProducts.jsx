@@ -39,15 +39,26 @@ export default function Home() {
         {products.map((product) => (
           <div className="col-md-4 mb-4" key={product._id}>
             <div className="card h-100 shadow-sm">
-              <img
-                src={
-                  product.image ||
-                  "https://via.placeholder.com/300x250?text=No+Image"
-                }
-                className="card-img-top"
-                alt={product.name}
-                style={{ height: "250px", objectFit: "cover" }}
-              />
+              <div
+                  style={{
+                    height: "250px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "white"
+                  }}
+                >
+                  <img
+                    src={product.image || "https://via.placeholder.com/300x250"}
+                    alt={product.name}
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                      objectFit: "contain"
+                    }}
+                  />
+                </div>
+
 
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{product.name}</h5>
@@ -55,7 +66,7 @@ export default function Home() {
                   {product.description?.slice(0, 100)}...
                 </p>
                 <h6 className="card-subtitle mb-2 text-muted">
-                  ${product.price}
+                 PRICE :  {product.price}
                 </h6>
 
                 <div className="mt-auto d-flex gap-2">
