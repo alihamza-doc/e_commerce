@@ -10,7 +10,7 @@ export default function Cart() {
   );
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-5">
       <h2 className="mb-4">Your Cart</h2>
 
       {cart.length === 0 ? (
