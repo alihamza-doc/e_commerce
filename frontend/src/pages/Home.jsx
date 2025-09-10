@@ -69,7 +69,7 @@ export default function Home() {
 
                   {/* Card body */}
                   <div className="card-body d-flex flex-column">
-                    <h5 className="card-title">{product.name}</h5>
+                    <h5 className="card-title border-bottom border-primary pb-3">{product.name}</h5>
                     <p className="card-text">
                       {product.description?.slice(0, 100)}...
                     </p>
