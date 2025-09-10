@@ -66,7 +66,7 @@ export default function Checkout() {
   };
 
   return (
-    <div className="container mt-4 mb-5">
+    <div className="container mt-5 pt-5 mb-5">
       <h2>Checkout</h2>
 
       {cart.length === 0 ? (
