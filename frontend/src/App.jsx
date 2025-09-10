@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Layout from "./components/Layout";
+import './app.css'
 
 import Home from "./pages/Home";
 import ProductPage from "./pages/ProductPage";
