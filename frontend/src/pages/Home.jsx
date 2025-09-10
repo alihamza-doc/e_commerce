@@ -29,7 +29,7 @@ export default function Home() {
         <input
           type="text"
           placeholder="Search products..."
-          className="form-control w-50 border-dark"
+          className="form-control w-50 border-primary"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
