@@ -32,7 +32,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3 fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark navbar-dark-blue shadow p-4 fixed-top "
+     >
       <div className="container-fluid">
         <Link className="navbar-brand fw-bold" to="/" onClick={closeNavbar}>
           🛍 E-Shop
@@ -51,7 +52,7 @@ export default function Navbar() {
 
           {/* Show badge if cart has items */}
           {cartCount > 0 && (
-            <span
+            <span  
               className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
               style={{ fontSize: "0.7rem" }}
             >
