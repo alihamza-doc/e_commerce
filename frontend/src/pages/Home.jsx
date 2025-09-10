@@ -10,7 +10,6 @@ export default function Home() {
   const { addToCart } = useCart();
   const { user } = useAuth();
 
-
   useEffect(() => {
     axios
       .get("https://ecom-backend-bedb.onrender.com/api/products")
@@ -24,9 +23,9 @@ export default function Home() {
   );
 
   return (
-    <div className="container mt-5 pt-5 ">
+    <div className="container-fluid mt-5 pt-5 bg-light p-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>All Products</h2>
+        <h2>CHOOSE YOUR PRODUCT</h2>
         <input
           type="text"
           placeholder="Search products..."
@@ -41,32 +40,49 @@ export default function Home() {
           <p>No products found.</p>
         ) : (
           filteredProducts.map((product) => (
-            <div className="col-md-4 mb-4" key={product._id}>
-              <div className="card h-100 shadow-sm">
-                <img
-                  src={product.image || "https://via.placeholder.com/300x250"}
-                  className="card-img-top"
-                  alt={product.name}
-                  style={{ height: "250px", objectFit: "cover" }}
-                />
-                <div className="card-body d-flex flex-column">
-                  <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">
-                    {product.description?.slice(0, 100)}...
-                  </p>
-                  <h6 className="card-subtitle mb-2 text-muted">
-                    ${product.price}
-                  </h6>
-                  <div className="mt-auto d-flex gap-2">
-                    <Link
-                      to={`/product/${product._id}`}
-                      className="btn btn-outline-primary w-50"
-                    >
-                      Details
-                    </Link>
+            <div className="col-md-3 mb-4" key={product._id}>
+              <Link
+                to={`/product/${product._id}`}
+                className="text-decoration-none text-dark"
+              >
+                <div className="card h-100 shadow-sm border-primary">
+                  {/* Image */}
+                  <div
+                    style={{
+                      height: "250px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      backgroundColor: "white",
+                    }}
+                  >
+                    <img
+                      src={product.image || "https://via.placeholder.com/300x250"}
+                      alt={product.name}
+                      style={{
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+
+                  {/* Card body */}
+                  <div className="card-body d-flex flex-column">
+                    <h5 className="card-title">{product.name}</h5>
+                    <p className="card-text">
+                      {product.description?.slice(0, 100)}...
+                    </p>
+                    <h6 className="card-subtitle mb-3 text-muted">
+                      Price: <span className="fw-bold">{product.price}</span>
+                    </h6>
+
+                    {/* Add to Cart Button */}
                     <button
-                      className="btn btn-success w-50"
-                      onClick={() => {
+                      className="btn btn-success mt-auto w-100 rounded-pill"
+                      onClick={(e) => {
+                        e.preventDefault(); // stop link navigation
+                        e.stopPropagation(); // stop event bubbling
                         if (!user) {
                           alert("Please login first");
                           return;
@@ -74,11 +90,11 @@ export default function Home() {
                         addToCart(product);
                       }}
                     >
-                      Add to Cart
+                      🛒 Add to Cart
                     </button>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))
         )}
