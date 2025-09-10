@@ -22,7 +22,7 @@ export default function EditProduct() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/products/${id}`)
+      .get(`https://ecom-backend-bedb.onrender.com/api/products/${id}`)
       .then((res) => {
         setForm(res.data);
         setLoading(false);
@@ -46,7 +46,7 @@ export default function EditProduct() {
       const formData = new FormData();
       formData.append("image", file);
 
-      const res = await axios.post("http://localhost:5000/api/upload", formData, {
+      const res = await axios.post("https://ecom-backend-bedb.onrender.com/api/upload", formData, {
         headers: {
           Authorization: `Bearer ${user.token}`,
           "Content-Type": "multipart/form-data",
@@ -87,8 +87,8 @@ export default function EditProduct() {
   }
 
   return (
-    <div className="container mt-4">
-      <h2>Edit Product</h2>
+    <div className="container mt-5 pt-5">
+      <h2 className="text-center">Edit Product</h2>
       {error && <div className="alert alert-danger">{error}</div>}
 
       <form onSubmit={handleSubmit} className="w-50 mx-auto">
