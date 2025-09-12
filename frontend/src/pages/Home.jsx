@@ -23,13 +23,13 @@ export default function Home() {
   );
 
   return (
-    <div className="container-fluid mt-5 pt-5 bg-light p-5">
-      <div className="d-flex justify-content-between align-items-center mb-4">
+    <div className="container-fluid  mt-5 pt-5 bg-light p-2 p-lg-5 ">
+      <div className="d-flex justify-content-between align-items-center mb-4  pt-4">
         <h2>CHOOSE YOUR PRODUCT</h2>
         <input
           type="text"
           placeholder="Search products..."
-          className="form-control w-50 border-dark"
+          className="form-control w-50 border-primary"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -40,7 +40,7 @@ export default function Home() {
           <p>No products found.</p>
         ) : (
           filteredProducts.map((product) => (
-            <div className="col-md-3 mb-4" key={product._id}>
+            <div className="col-md-3 col-sm-1 mb-4" key={product._id}>
               <Link
                 to={`/product/${product._id}`}
                 className="text-decoration-none text-dark"
@@ -69,7 +69,7 @@ export default function Home() {
 
                   {/* Card body */}
                   <div className="card-body d-flex flex-column">
-                    <h5 className="card-title">{product.name}</h5>
+                    <h5 className="card-title border-bottom border-primary pb-3">{product.name}</h5>
                     <p className="card-text">
                       {product.description?.slice(0, 100)}...
                     </p>

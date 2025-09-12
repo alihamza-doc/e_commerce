@@ -2,6 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useCart } from "../context/CartContext.jsx";
 import { useEffect, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShop } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -34,9 +36,9 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark navbar-dark-blue shadow p-4 fixed-top "
      >
-      <div className="container-fluid">
-        <Link className="navbar-brand fw-bold" to="/" onClick={closeNavbar}>
-          🛍 E-Shop
+      <div className="container-fluid ">
+        <Link className="navbar-brand fw-bold fs-5 p-2" to="/" onClick={closeNavbar}>
+         <FontAwesomeIcon className="text-info" icon={faShop} /> E-Shop
         </Link>
 
         <button
