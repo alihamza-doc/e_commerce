@@ -34,11 +34,11 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark navbar-dark-blue shadow p-4 fixed-top "
+    <nav className="navbar navbar-expand-lg navbar-dark navbar-dark-blue shadow fixed-top "
      >
       <div className="container-fluid ">
-        <Link className="navbar-brand fw-bold fs-5 p-2" to="/" onClick={closeNavbar}>
-         <FontAwesomeIcon className="text-info" icon={faShop} /> E-Shop
+        <Link className="" to="/" onClick={closeNavbar}>
+         <img src="/public/images/logo.png" alt="" className=" rounded " width={140} height={80} />
         </Link>
 
         <button
