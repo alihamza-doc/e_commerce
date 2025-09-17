@@ -37,7 +37,7 @@ export default function Home() {
 
       <div className="row">
         {filteredProducts.length === 0 ? (
-          <p>No products found.</p>
+          <p>LOADING PRODUCTS.PLEASE WAIT!</p>
         ) : (
           filteredProducts.map((product) => (
             <div className="col-md-3 col-sm-1 mb-4" key={product._id}>
