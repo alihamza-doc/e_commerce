@@ -2,6 +2,10 @@
 .navbar-dark-blue {
   background-color: #094785 !important;
 }
+
+.text-dark-blue {
+  color: #094785 !important;
+}
 body {
   font-family: 'Inter', sans-serif !important;
    color: black;

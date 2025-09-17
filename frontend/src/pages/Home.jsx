@@ -25,11 +25,11 @@ export default function Home() {
   return (
     <div className="container-fluid  mt-5 pt-5 bg-light p-2 p-lg-5 ">
       <div className="d-flex justify-content-between align-items-center mb-4  pt-4">
-        <h2>CHOOSE YOUR PRODUCT</h2>
+        <h2 className="text-dark-blue">CHOOSE YOUR PRODUCT</h2>
         <input
           type="text"
           placeholder="Search products..."
-          className="form-control w-50 border-primary"
+          className="form-control w-50 w-md-50 border-primary"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
