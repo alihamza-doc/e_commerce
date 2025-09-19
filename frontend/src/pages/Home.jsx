@@ -37,7 +37,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="row">
+      <div className="container-fluid row">
         {loading ? (
           // 🔹 Show spinner or loading text
           <div className="d-flex justify-content-center align-items-center p-5">
