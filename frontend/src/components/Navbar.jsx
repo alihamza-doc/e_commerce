@@ -38,7 +38,7 @@ export default function Navbar() {
      >
       <div className="container-fluid ">
         <Link className="" to="/" onClick={closeNavbar}>
-         <img src="https://res.cloudinary.com/doabbpdy1/image/upload/v1758111585/logo_ytvefe.png" alt="" className=" rounded " width={140} height={80} />
+         <img src="https://res.cloudinary.com/doabbpdy1/image/upload/v1758111585/logo_ytvefe.png" alt="" className=" rounded background " width={140} height={80} />
         </Link>
 
         <button

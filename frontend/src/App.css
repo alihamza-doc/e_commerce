@@ -10,4 +10,17 @@ body {
   font-family: 'Inter', sans-serif !important;
    color: black;
 }
+.CartButton{
+  background-color: #094785 !important;
+  color: white !important;
+  border-radius: 20px;
+  text-align: center;
+  border: none;
+  padding: 7px 20px;
+}
 
+.CartButton:hover{
+  background-color: #063970 !important;
+  color: white !important;
+  
+}

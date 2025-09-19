@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -23,7 +24,7 @@ export default function Register() {
 
   return (
     <div className="container mt-5 pt-5">
-      <h2 className="text-center">Register</h2>
+      <h2 className="text-center mt-5">Register</h2>
       {error && <div className="alert alert-danger">{error}</div>}
       <form onSubmit={handleSubmit} className="w-50 mx-auto">
         <div className="mb-3">
@@ -39,6 +40,9 @@ export default function Register() {
           <input name="password" type="password" className="form-control" onChange={handleChange} required />
         </div>
         <button className="btn btn-primary" type="submit">Register</button>
+         <Link to={"/login"}
+          className="p-3"
+         >already have acount?</Link>
       </form>
     </div>
   );
