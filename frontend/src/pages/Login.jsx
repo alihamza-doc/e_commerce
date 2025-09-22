@@ -28,7 +28,7 @@ export default function Login() {
     <div className="container mt-5 pt-5">
       <h2 className="text-center mt-5">Login</h2>
       {error && <div className="alert alert-danger">{error}</div>}
-      <form onSubmit={handleSubmit} className="w-50 mx-auto">
+      <form onSubmit={handleSubmit} className="col-md-6 col-sm-12 mx-auto">
         <div className="mb-3">
           <label className="form-label">Email</label>
           <input name="email" type="email" className="form-control" onChange={handleChange} required />
@@ -38,7 +38,7 @@ export default function Login() {
           <input name="password" type="password" className="form-control" onChange={handleChange} required />
         </div>
         <button className="btn btn-success" type="submit">Login</button>
-        <Link to={"/login"}
+        <Link to={"/register"}
           className="p-3"
          >Don't have an account? Sign Up</Link>
         

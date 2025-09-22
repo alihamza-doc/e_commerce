@@ -26,7 +26,7 @@ export default function Register() {
     <div className="container mt-5 pt-5">
       <h2 className="text-center mt-5">Register</h2>
       {error && <div className="alert alert-danger">{error}</div>}
-      <form onSubmit={handleSubmit} className="w-50 mx-auto">
+      <form onSubmit={handleSubmit} className="col-md-6 col-sm-12 mx-auto">
         <div className="mb-3">
           <label className="form-label">Name</label>
           <input name="name" className="form-control" onChange={handleChange} required />

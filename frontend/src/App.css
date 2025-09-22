@@ -25,6 +25,6 @@ body {
   
 }
 .card-img-hover:hover {
-  transform: scale(0.9); /* zoom-out effect */
+  transform: scale(1.1); /* zoom-out effect */
 }
 
