@@ -63,11 +63,14 @@ export default function Home() {
         </div>
       )}
 
-      <div className="g-3 row">
+      <div className="g-4 row">
         {loading ? (
           <div className="d-flex justify-content-center align-items-center p-5">
-            <div className="spinner-border text-primary me-3" role="status" />
-            <span className="text-primary fw-bold">
+            <div className="spinner-border text-primary me-3 flex-shrink-0"
+              role="status"
+              style={{ width: "2rem", height: "2rem" }}>
+            </div>
+            <span className="text-primary fw-bold d-inline-block" style={{ lineHeight: "1" }}>
               LOADING PRODUCTS... PLEASE WAIT!
             </span>
           </div>
@@ -82,7 +85,7 @@ export default function Home() {
                 to={`/product/${product._id}`}
                 className="text-decoration-none text-dark"
               >
-                <div className="card h-100 shadow-sm border-primary">
+                <div className="card h-100 shadow-sm border-primary hover-shadow">
                   <div
                     style={{
                       height: "250px",
@@ -141,7 +144,7 @@ export default function Home() {
         )}
       </div>
 
-      
+
     </div>
   );
 }
