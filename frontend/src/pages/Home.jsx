@@ -1,23 +1,25 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa"; // 🔹 Search icon
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState(""); 
-  const [loading, setLoading] = useState(true); // 🔹 Loading state
+  const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [showSearch, setShowSearch] = useState(false); // 🔹 toggle search for mobile
   const { addToCart } = useCart();
   const { user } = useAuth();
 
   useEffect(() => {
-    setLoading(true); // start loading
+    setLoading(true);
     axios
       .get("https://ecom-backend-bedb.onrender.com/api/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.error(err))
-      .finally(() => setLoading(false)); // stop loading
+      .finally(() => setLoading(false));
   }, []);
 
   const filteredProducts = products.filter((product) =>
@@ -28,28 +30,48 @@ export default function Home() {
     <div className="container-fluid mt-5 pt-5 bg-light p-2 p-lg-5">
       <div className="d-flex justify-content-between align-items-center mb-4 pt-4">
         <h2 className="text-dark-blue">CHOOSE YOUR PRODUCT</h2>
+
+        {/* 🔹 Desktop Search */}
         <input
           type="text"
           placeholder="Search products..."
-          className="form-control w-50 w-md-50 border-primary"
+          className="form-control w-50 border-primary d-none d-md-block"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
+
+        {/* 🔹 Mobile Search Icon */}
+        <button
+          className="btn btn-outline-primary d-md-none"
+          onClick={() => setShowSearch(!showSearch)}
+        >
+          <FaSearch />
+        </button>
       </div>
+
+      {/* 🔹 Mobile Search Bar (toggle with animation) */}
+      {showSearch && (
+        <div className="mb-3 d-md-none">
+          <input
+            type="text"
+            placeholder="Search products..."
+            className="form-control border-primary animate__animated animate__fadeInDown"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            autoFocus
+          />
+        </div>
+      )}
 
       <div className="g-3 row">
         {loading ? (
-          // 🔹 Show spinner or loading text
           <div className="d-flex justify-content-center align-items-center p-5">
             <div className="spinner-border text-primary me-3" role="status" />
             <span className="text-primary fw-bold">
               LOADING PRODUCTS... PLEASE WAIT!
             </span>
-            
           </div>
-          
         ) : filteredProducts.length === 0 ? (
-          // 🔹 No products found
           <p className="text-center p-5 text-danger fw-bold">
             No products found.
           </p>
@@ -68,15 +90,20 @@ export default function Home() {
                       alignItems: "center",
                       justifyContent: "center",
                       backgroundColor: "white",
+                      overflow: "hidden", // hide zoom overflow
                     }}
                   >
                     <img
-                      src={product.image || "https://via.placeholder.com/300x250"}
+                      className="card-img-hover"
+                      src={
+                        product.image || "https://via.placeholder.com/300x250"
+                      }
                       alt={product.name}
                       style={{
                         maxWidth: "100%",
                         maxHeight: "100%",
                         objectFit: "contain",
+                        transition: "transform 0.4s ease", // smooth zoom
                       }}
                     />
                   </div>
@@ -113,6 +140,8 @@ export default function Home() {
           ))
         )}
       </div>
+
+      
     </div>
   );
 }

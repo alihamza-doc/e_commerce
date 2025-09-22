@@ -38,6 +38,9 @@ export default function Login() {
           <input name="password" type="password" className="form-control" onChange={handleChange} required />
         </div>
         <button className="btn btn-success" type="submit">Login</button>
+        <Link to={"/login"}
+          className="p-3"
+         >Don't have an account? Sign Up</Link>
         
           
         

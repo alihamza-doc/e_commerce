@@ -24,3 +24,7 @@ body {
   color: white !important;
   
 }
+.card-img-hover:hover {
+  transform: scale(0.9); /* zoom-out effect */
+}
+
