@@ -40,7 +40,7 @@ export default function Login() {
         <button className="btn btn-success" type="submit">Login</button>
         <Link to={"/register"}
           className="p-3"
-         >Don't have an account? Sign Up</Link>
+         >Sign Up</Link>
         
           
         
